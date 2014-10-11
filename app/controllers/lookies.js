@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+export default Ember.ArrayController.extend({
 
   newLookieURL: "",
 
@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
 
       var newLookie = this.store.createRecord('lookie', {
         url: newLookieURL
-      })
+      });
       
       newLookie.save();
 
