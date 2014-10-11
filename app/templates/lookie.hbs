@@ -3,11 +3,10 @@
 {{view "create-tag"}}
 <hr>
  --}}
+{{#each tag in model.tags}}
+  {{lookie-tag left=tag.ratioFromLeft top=tag.ratioFromTop}}
+{{/each}}
 
 {{#view "taggable"}}
   <div class="lookie" {{bind-attr style="model.backgroundUrl"}}></div>
 {{/view}}
-
-{{#each tag in model.tags}}
-  <div>There's a tag</div>
-{{/each}}

@@ -32,3 +32,9 @@ html, body {
   background-position: 50% 50%; /* This could be improved with after identifying the area of interest */
 }
 
+.tag {
+  position: absolute;
+  color: #fff;
+  text-shadow: 1px 1px 5px #000;
+  font-size: 20px;
+}
