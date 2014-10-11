@@ -1,1 +1,13 @@
-<div class="lookie" {{bind-attr style="backgroundUrl"}}></div>
+
+{{!-- 
+{{view "create-tag"}}
+<hr>
+ --}}
+
+{{#view "taggable"}}
+  <div class="lookie" {{bind-attr style="model.backgroundUrl"}}></div>
+{{/view}}
+
+{{#each tag in model.tags}}
+  <div>There's a tag</div>
+{{/each}}

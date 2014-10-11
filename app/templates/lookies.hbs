@@ -1,26 +1,28 @@
-<h2 id='title'>Welcome to {{#link-to 'lookies'}}Lookies{{/link-to}}!</h2>
+<div class="container">
+  <h2 id='title'>Welcome to {{#link-to 'lookies'}}Lookies{{/link-to}}!</h2>
 
-<form class="form-horizontal" {{action "createLookie" on="submit"}}>
-  <div class="input-group">
-    {{input type="text" class="form-control" autofocus=true
-        value=newLookieURL 
-        placeholder="Enter a Lookie URL"}}
-    <span class="input-group-btn">
-      <button class="btn btn-default" type="submit">Save</button>
-    </span>
-  </div>
-</form>
+  <form class="form-horizontal" {{action "createLookie" on="submit"}}>
+    <div class="input-group">
+      {{input type="text" class="form-control" autofocus=true
+          value=newLookieURL 
+          placeholder="Enter a Lookie URL"}}
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Save</button>
+      </span>
+    </div>
+  </form>
+</div>
 
-<h3>
-  A list of lookies
-</h3>
+<div class="container">
+  <h3>
+    A list of lookies
+  </h3>
 
-{{#each}}
-  {{#link-to 'lookie' id}}
-    <span class="lookie-thumb" {{bind-attr style="backgroundUrl"}}></span>
-  {{/link-to}}
-{{/each}}
+  {{#each}}
+    {{#link-to 'lookie' id}}
+      <span class="lookie-thumb" {{bind-attr style="backgroundUrl"}}></span>
+    {{/link-to}}
+  {{/each}}
+</div>
 
-<hr style="clear:left"/>
-
-{{outlet}}
+{{!-- {{outlet}} --}}
