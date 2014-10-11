@@ -12,3 +12,11 @@ html, body {
   background-size: cover;
   background-position: 50% 50%; /* This could be improved with after identifying the area of interest */
 }
+
+.lookie {
+  height: 100vh; /* The height of the viewport. Requires JS calc for older browsers */
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-size: cover;
+  background-position: 50% 50%; /* This could be improved with after identifying the area of interest */
+}

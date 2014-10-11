@@ -14,6 +14,11 @@
 </h3>
 
 {{#each}}
-  <span class="lookie-thumb" {{bind-attr style="backgroundUrl"}}></span>
+  {{#link-to 'lookie' id}}
+    <span class="lookie-thumb" {{bind-attr style="backgroundUrl"}}></span>
+  {{/link-to}}
 {{/each}}
 
+<hr style="clear:left"/>
+
+{{outlet}}

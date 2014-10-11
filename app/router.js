@@ -6,11 +6,8 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
 
-  this.resource('lookies');
-
-  this.resource('lookie', { path: '/lookies/:id' }, function() {
-    this.route('edit');
-  });
+  this.resource('lookies', { path: "lookies" });
+  this.resource('lookie',  { path: "lookies/:lookie_id" });
 
 });
 
