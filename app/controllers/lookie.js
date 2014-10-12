@@ -13,27 +13,20 @@ export default Ember.Controller.extend({
      * A lookie can be tagged with a product.
      */
     createTag: function (x, y, productId) {
-      var store = this.store;
-
-      // debugger;
-      var lookie = this.get('model');
-
-      // Persist tag
-      store.createRecord('tag', {
-        lookie: this.get('model'),
-        // product: product,
-        ratioFromLeft: x,
-        ratioFromTop:  y
-      }).save().then(function(){
-
+      var store = this.store,
+          lookie = this.get('model'),
+          newTag = store.createRecord('tag', {
+            lookie: lookie,
+            // product: product,
+            ratioFromLeft: x,
+            ratioFromTop:  y
+          });
+      // Create and save tag, and update the lookie's ref to the tag
+      lookie.get('tags').then(function(tags) {
+        tags.addObject(newTag);
         lookie.save();
-        
+        newTag.save();
       });
-
-
-      // Persist the tag in the store
-      // this.get('model').get('tags').addObject( newTag ).save();
-
     },
 
     linkTagWithProduct: function () {
