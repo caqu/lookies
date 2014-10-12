@@ -7,10 +7,22 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+  // Seen when the lookie viewport is wider than the image
+  leftBlackBarWidth: function () {
+
+  }.property(),
+
+  // Seen when the lookie viewport is taller than the image
+  topBlackBarHeight: function () {
+
+  }.property(),
+
   actions: {
 
     /**
      * A lookie can be tagged with a product.
+     * @param x value from 0 to 1 of the x-coord relative to the left edge
+     * @param y value from 0 to 1 of the y-coord relative to the top edge
      */
     createTag: function (x, y, productId) {
       var store = this.store,
