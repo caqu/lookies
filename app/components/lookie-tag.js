@@ -8,5 +8,5 @@ export default Ember.Component.extend({
     var calcLeft = this.get('leftBlackBarWidth') + this.get('ratioFromLeft') * this.get('lookieWidth'),
         calcTop  = this.get('topBlackBarHeight') + this.get('ratioFromTop' ) * this.get('lookieHeight');
     return "left:"+calcLeft+"px;"+"top:"+calcTop+"px";
-  }.property()
+  }.property('leftBlackBarWidth', 'topBlackBarHeight', 'lookieHeight', 'lookieWidth')
 });

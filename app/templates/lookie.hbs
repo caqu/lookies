@@ -3,17 +3,18 @@
 {{view "create-tag"}}
 <hr>
  --}}
-{{#each tag in model.tags}}
-  {{lookie-tag ratioFromLeft=tag.ratioFromLeft ratioFromTop =tag.ratioFromTop
-               leftBlackBarWidth=100           topBlackBarHeight=100
-               lookieWidth=1000                lookieHeight=900
-  }}
-{{/each}}
 
 {{#view "taggable"}}
   <div class="lookie" {{bind-attr style="model.backgroundUrl"}}></div>
-<pre class="well" style="position:absolute;top:0;left:0">
-leftBlackBarWidth: {{view.leftBlackBarWidth}}
+  {{#each tag in model.tags}}
+    {{lookie-tag ratioFromLeft=tag.ratioFromLeft ratioFromTop =tag.ratioFromTop
+       leftBlackBarWidth=view.leftBlackBarWidth  topBlackBarHeight=view.topBlackBarHeight
+       lookieWidth=view.lookieWidth              lookieHeight=view.lookieHeight
+    }}
+  {{/each}}
+
+<pre class="well" style="position:absolute;top:0;left:0"
+>leftBlackBarWidth: {{view.leftBlackBarWidth}}
 topBlackBarHeight: {{view.topBlackBarHeight}}
 lookieWidth: {{view.lookieWidth}}
 lookieHeight: {{view.lookieHeight}}

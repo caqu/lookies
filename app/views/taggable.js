@@ -30,8 +30,8 @@ export default Ember.View.extend({
 
     $(image).load(function() {
       var loadedImage = this;
-      view.set('loadedImageHeight', loadedImage.height)
-      view.set('loadedImageWidth', loadedImage.width)
+      view.set('loadedImageHeight', loadedImage.height);
+      view.set('loadedImageWidth', loadedImage.width);
       view.recalculateSizes();
     });
     image.src = image_url;
@@ -48,7 +48,6 @@ export default Ember.View.extend({
   },//.bind(this),
   
   recalculateSizes: function() {
-// debugger;
     var view = this,
         target = $('#'+this.elementId)[0],
         stretchedWidth = target.offsetWidth,
@@ -60,12 +59,12 @@ export default Ember.View.extend({
     if (isShowingVerticalBars) {
       stretchedWidth = this.get('loadedImageWidth') /this.get('loadedImageHeight') * target.offsetHeight;
       leftBlackBarWidth = (target.offsetWidth - stretchedWidth) / 2 | 0;
-      view.set('leftBlackBarWidth', leftBlackBarWidth);
     } else {
       stretchedHeight = this.get('loadedImageHeight') /this.get('loadedImageWidth') * target.offsetWidth;
       topBlackBarHeight = (target.offsetHeight - stretchedHeight) / 2 | 0;
-      view.set('topBlackBarHeight', topBlackBarHeight);
     }
+    view.set('leftBlackBarWidth', leftBlackBarWidth);
+    view.set('topBlackBarHeight', topBlackBarHeight);
     view.set('lookieWidth', stretchedWidth);
     view.set('lookieHeight', stretchedHeight);
   },
@@ -83,6 +82,8 @@ export default Ember.View.extend({
       top and left edges. The coordinate values will be a ratio
       distance from the left-edge of the photo divided by width,
       and distance from the top-edge divided by the height.
+
+      TODO remove this duplicate code, use more fns from above
    */
   click: function(evt) {
 
