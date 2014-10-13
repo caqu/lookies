@@ -61,27 +61,31 @@ export default Ember.Controller.extend({
       var productUrlAsId = encodeURIComponent(productUrl).replace(/\./g, '%2E');
       var store = this.store;
       var lastTag = this.get('lastTag');
+      var that = this;
 
       // Find or create product, then assign tags to it
       var product = store.find("product", productUrlAsId).then(
                       // Add tags to existing product
                       function recordDidLoad(product){
-                        product.get('tags').addObject(lastTag).save();
-                        product.save();
-                        return product;
+                        _saveProduct(product);
                       },
                       // Create product and add the first tag
                       function recordFailedToLoad() {
                         var product = store.createRecord("product", {
                           "id": productUrlAsId,
                           "url": productUrlAsId
-                          // ,"tags": [lastTag]
                         });
-                        product.get('tags').addObject(lastTag).save();
-                        product.save();
-                        return product;
+                        _saveProduct(product);
                       }
                     );
+      
+      function _saveProduct (product) {
+        product.get('tags').addObject(lastTag).save();
+        product.save().then(function (){
+          that.set('isTagging', false);
+        });
+      }
+
     }
 
 
