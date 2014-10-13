@@ -66,15 +66,12 @@ export default Ember.Controller.extend({
       var product = store.find("product", productUrlAsId).then(
                       // Add tags to existing product
                       function recordDidLoad(product){
-                        debugger;
-                        product.get('tags').then(function(tags) {
-                          tags.addObject(lastTag);
-                          product.save();
-                        });
+                        product.get('tags').addObject(lastTag).save();
+                        product.save();
+                        return product;
                       },
                       // Create product and add the first tag
                       function recordFailedToLoad() {
-                        debugger;
                         var product = store.createRecord("product", {
                           "id": productUrlAsId,
                           "url": productUrlAsId
