@@ -16,6 +16,8 @@ export default Ember.Controller.extend({
   topBlackBarHeight: function () {
 
   }.property(),
+  
+  isTagging: false,
 
   actions: {
 
@@ -39,6 +41,8 @@ export default Ember.Controller.extend({
         lookie.save();
         newTag.save();
       });
+
+      this.set("isTagging", true);
     },
 
     linkTagWithProduct: function () {

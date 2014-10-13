@@ -86,8 +86,6 @@ export default Ember.View.extend({
       TODO remove this duplicate code, use more fns from above
    */
   click: function(evt) {
-
-    console.log("evt", evt);
     var target = evt.currentTarget,
         bg_image = $(target).find(".lookie").css('background-image'),
         // Remove url("") to get the url

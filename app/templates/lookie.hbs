@@ -1,6 +1,8 @@
 
+{{#if isTagging}}
+  {{view "create-tag"}}
+{{/if}}
 {{!-- 
-{{view "create-tag"}}
 <hr>
  --}}
 
@@ -12,11 +14,4 @@
        lookieWidth=view.lookieWidth              lookieHeight=view.lookieHeight
     }}
   {{/each}}
-
-<pre class="well" style="position:absolute;top:0;left:0"
->leftBlackBarWidth: {{view.leftBlackBarWidth}}
-topBlackBarHeight: {{view.topBlackBarHeight}}
-lookieWidth: {{view.lookieWidth}}
-lookieHeight: {{view.lookieHeight}}
-</pre>
 {{/view}}

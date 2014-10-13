@@ -33,5 +33,21 @@ html, body {
   position: absolute;
   color: #fff;
   text-shadow: 1px 1px 5px #000;
-  font-size: 20px;
+  font-size: 5vmin;
+  opacity: .6;
+  transform: translate(-50%, -50%);
+}
+
+.tag:hover,
+.tag:focus {
+  opacity: 1;
+}
+
+.create-tag-product-form {
+  width: 40vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
