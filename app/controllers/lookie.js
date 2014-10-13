@@ -56,7 +56,6 @@ export default Ember.Controller.extend({
     addLinkFromTagToProduct: function () {
       console.log("addLinkFromTagToProduct");
 
-      // debugger;
       var productUrl = this.get('newProductURL');
       var productUrlAsId = encodeURIComponent(productUrl).replace(/\./g, '%2E');
       var store = this.store;
