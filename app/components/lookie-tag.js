@@ -11,6 +11,7 @@ export default Ember.Component.extend({
   }.property('leftBlackBarWidth', 'topBlackBarHeight', 'lookieHeight', 'lookieWidth'),
 
   click: function () {
+    // TODO prevent error if href is null
     var href = decodeURIComponent( this.get('href').get('url') )
     this.sendAction('action', href);
   }
