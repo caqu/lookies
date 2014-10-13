@@ -1,4 +1,12 @@
-<div class="is-editing well" style="display:table;position:absolute">
+<div class="logo-home">
+  {{#link-to 'lookies'}}<span class="glyphicon glyphicon-eye-open"></span>{{/link-to}}
+</div>
+
+<div class="next-lookie">
+  {{#link-to 'lookies'}}<span class="glyphicon glyphicon-arrow-right"></span>{{/link-to}}
+</div>
+
+<div class="is-editing well" style="display:table;position:absolute;right:0">
   <div class="checkbox">
     <label>
       {{input type="checkbox" name="isEditing" checked=isEditing}}

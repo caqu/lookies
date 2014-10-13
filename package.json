@@ -12,11 +12,11 @@
     "postinstall": "bower install",
     "test": "ember test"
   },
-  "repository": "https://github.com/stefanpenner/ember-cli",
+  "repository": "https://github.com/caqu/lookies",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Carlos Luis Quesada",
   "license": "MIT",
   "devDependencies": {
     "body-parser": "^1.2.0",
