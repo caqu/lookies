@@ -1,5 +1,6 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  // product: DS.hasMany('tag')
+  url: DS.attr('string'),
+  tags: DS.hasMany('tag')
 });

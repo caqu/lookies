@@ -17,7 +17,14 @@ export default Ember.Controller.extend({
 
   }.property(),
   
+  // whether the lookie can be tagged, and clicking on tags edits or navigates  
+  isEditing: true,
+
+  // Between user click to create tag and saving the product url
   isTagging: false,
+
+  // Reference to the tag that was created last
+  lastTag: null,
 
   actions: {
 
@@ -26,7 +33,7 @@ export default Ember.Controller.extend({
      * @param x value from 0 to 1 of the x-coord relative to the left edge
      * @param y value from 0 to 1 of the y-coord relative to the top edge
      */
-    createTag: function (x, y, productId) {
+    createTag: function (x, y) {
       var store = this.store,
           lookie = this.get('model'),
           newTag = store.createRecord('tag', {
@@ -43,22 +50,38 @@ export default Ember.Controller.extend({
       });
 
       this.set("isTagging", true);
+      this.set("lastTag", newTag);
     },
+    
+    addLinkFromTagToProduct: function () {
+      console.log("addLinkFromTagToProduct");
 
-    linkTagWithProduct: function () {
       // debugger;
-      // productId = "1305_8766_012";
-      // var store = this.store;
+      var productUrl = this.get('newProductURL');
+      var productUrlAsId = encodeURIComponent(productUrl).replace(/\./g, '%2E');
+      var store = this.store;
+      var lastTag = this.get('lastTag');
 
-      // var product = store.find("product", productId).
-      //   then(
-      //     function recordDidLoad(){}, 
-      //     function recordFailedToLoad() {
-      //       debugger;
-      //       return store.createRecord("product", {
-      //         "id": productId
-      //       }).save();
-      //     });
+      // Find or create product, then assign tags to it
+      var product = store.find("product", productUrlAsId).then(
+                      // Add tags to existing product
+                      function recordDidLoad(product){
+                        debugger;
+                        product.get('tags').then(function(tags) {
+                          tags.addObject(lastTag);
+                          product.save();
+                        });
+                      },
+                      // Create product and add the first tag
+                      function recordFailedToLoad() {
+                        debugger;
+                        return store.createRecord("product", {
+                          "id": productUrlAsId,
+                          "url": productUrlAsId
+                          // ,"tags": [lastTag]
+                        }).save();
+                      }
+                    );
     }
 
 
