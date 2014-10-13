@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
   }.property(),
   
   // whether the lookie can be tagged, and clicking on tags edits or navigates  
-  isEditing: true,
+  isEditing: false,
 
   // Between user click to create tag and saving the product url
   isTagging: false,
@@ -64,28 +64,36 @@ export default Ember.Controller.extend({
       var that = this;
 
       // Find or create product, then assign tags to it
-      var product = store.find("product", productUrlAsId).then(
-                      // Add tags to existing product
-                      function recordDidLoad(product){
-                        _saveProduct(product);
-                      },
-                      // Create product and add the first tag
-                      function recordFailedToLoad() {
-                        var product = store.createRecord("product", {
-                          "id": productUrlAsId,
-                          "url": productUrlAsId
-                        });
-                        _saveProduct(product);
-                      }
-                    );
+      store.find("product", productUrlAsId).then(
+        // Add tags to existing product
+        function recordDidLoad(product){
+          _saveProduct(product);
+        },
+        // Create product and add the first tag
+        function recordFailedToLoad() {
+          var product = store.createRecord("product", {
+            "id": productUrlAsId,
+            "url": productUrlAsId
+          });
+          _saveProduct(product);
+        }
+      );
       
       function _saveProduct (product) {
         product.get('tags').addObject(lastTag).save();
-        product.save().then(function (){
+        product.save().then(function () {
           that.set('isTagging', false);
         });
       }
 
+    },
+
+    /**
+     * Navigate to tagged link
+     */
+    navigateToTag: function (href) {
+      window.console.log("Navigating to tagged link");
+      window.location = href;
     }
 
 

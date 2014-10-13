@@ -1,3 +1,12 @@
+<div class="is-editing well" style="display:table;position:absolute">
+  <div class="checkbox">
+    <label>
+      {{input type="checkbox" name="isEditing" checked=isEditing}}
+      Edit
+    </label>
+  </div>
+</div>
+
 {{#if isTagging}}
   {{view "create-tag"}}
 {{/if}}
@@ -8,6 +17,8 @@
     {{lookie-tag ratioFromLeft=tag.ratioFromLeft ratioFromTop =tag.ratioFromTop
        leftBlackBarWidth=view.leftBlackBarWidth  topBlackBarHeight=view.topBlackBarHeight
        lookieWidth=view.lookieWidth              lookieHeight=view.lookieHeight
+       href=tag.product
+       action="navigateToTag"
     }}
   {{/each}}
 {{/view}}

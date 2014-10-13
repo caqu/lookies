@@ -86,6 +86,11 @@ export default Ember.View.extend({
       TODO remove this duplicate code, use more fns from above
    */
   click: function(evt) {
+
+    // Is is not editing, don't handle the click which creates a new tag.
+    if ( !this.get('controller.isEditing') ) { return; }
+
+    // Figure the position of the click, to save it to the new tag.
     var target = evt.currentTarget,
         bg_image = $(target).find(".lookie").css('background-image'),
         // Remove url("") to get the url
