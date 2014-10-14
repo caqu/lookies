@@ -14,15 +14,9 @@
 </div>
 
 <div class="container">
-  <h3>
-    A list of lookies
-  </h3>
-
   {{#each}}
     {{#link-to 'lookie' id}}
       <span class="lookie-thumb" {{bind-attr style="backgroundUrl"}}></span>
     {{/link-to}}
   {{/each}}
 </div>
-
-{{!-- {{outlet}} --}}
