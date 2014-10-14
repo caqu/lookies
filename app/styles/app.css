@@ -13,7 +13,13 @@ html, body {
 }
 
 .logo-home {
-  position:fixed;background:#e1563f;padding:1em
+  position:fixed;
+  background:#e1563f;
+  font-size: 5em;
+  font-size: 7vmin;
+  padding: 1.5em 2em 1em;
+  padding: 2vmin 3vmin 1vmin;
+
 }
   .logo-home a {
     color: #FFF;
@@ -26,9 +32,9 @@ html, body {
   background: #6de13f;
   color: #FFF;
   font-size: 5em;
-  font-size: 5vw;
+  font-size: 7vmin;
   padding: 1.5em 2em 1em;
-  padding: 1.5vw 2vw 1vw;
+  padding: 2vmin 3vmin 1vmin;
 }
   .next-lookie a:focus,
   .next-lookie a:hover {
