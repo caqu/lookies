@@ -7,17 +7,24 @@ export default Ember.View.extend({
     var view = this;
     $(document).ready(updateSizes);
     $(window).bind('resize', updateSizes);
-    $(document.body).bind('resize', updateSizes);
-    
+    $(document.body).bind('resize', updateSizes);    
     function updateSizes () {
-      console.log( "tis", this);
       view.updateSizes();
     }
+
+    // Listen for orientation changes
+    window.addEventListener("orientationchange", function(event) {
+      // Announce the new orientation number
+      console.log("orientation", event.orientation);
+      view.set("orientation", event.orientation);
+    }, false);
   },
   
   updateSizes: function () {
-    this.set('viewportHeight', window.innerHeight);
-    this.set('viewportWidth', window.innerWidth);
+    this.set('outerHeight', window.outerHeight);
+    this.set('outerWidth', window.outerWidth);
+    this.set('innerHeight', window.innerHeight);
+    this.set('innerWidth', window.innerWidth);
     this.set('bodyWidth', document.body.offsetWidth);
     this.set('bodyHeight', document.body.offsetHeight);    
   },
@@ -26,12 +33,24 @@ export default Ember.View.extend({
     this.updateSizes();
   },
 
-  viewportHeight: function () {
-    return window.innerHeight;
+  orientation: function () {
+    return window.orientation;
   }.property(),
-  viewportWidth: function () {
+
+  outerWidth: function () {
+    return window.outerWidth;
+  }.property(),
+  outerHeight: function () {
+    return window.outerHeight;
+  }.property(),
+
+  innerWidth: function () {
     return window.innerWidth;
   }.property(),
+  innerHeight: function () {
+    return window.innerHeight;
+  }.property(),
+
   bodyWidth: function () {
     return document.body.offsetWidth;
   }.property(),
