@@ -12,7 +12,7 @@ export default Ember.Component.extend({
 
   click: function () {
     // TODO prevent error if href is null
-    var href = decodeURIComponent( this.get('href').get('url') )
+    var href = decodeURIComponent( this.get('href').get('url') );
     this.sendAction('action', href);
   }
 });
