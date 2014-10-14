@@ -18,7 +18,8 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 
 app.import('vendor/bootstrap/dist/js/bootstrap.js');
-app.import('vendor/bootstrap/dist/css/bootstrap.css');
+// Customized location of fonts.
+app.import('public/assets/css/bootstrap.css');
 
 app.import('vendor/emberfire/dist/emberfire.js');
 
