@@ -9,7 +9,8 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "test": "ember test"
+    "test": "ember test",
+    "postinstall": "bower install"
   },
   "repository": "https://github.com/caqu/lookies",
   "engines": {
@@ -30,7 +31,7 @@
   },
   "dependencies": {
     "body-parser": "^1.2.0",
-    "bower": "^1.3.8",
+    "bower": "1.3.8",
     "broccoli-asset-rev": "0.0.11",
     "broccoli-ember-hbs-template-compiler": "^1.5.0",
     "ember-cli": "0.0.39",
