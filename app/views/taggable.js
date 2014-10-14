@@ -3,6 +3,9 @@ import Ember from 'ember';
 // export default Ember.View.extend(ResizeMixin, {
 
 export default Ember.View.extend({
+  
+  classNames: ['clickable'],
+  
   /**
    * Lifecycle hook - called when view is created.
    * Note: this is a private method in ember, so make sure to

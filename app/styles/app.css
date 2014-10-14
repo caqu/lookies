@@ -2,6 +2,9 @@
 .well h4 {
   margin-top: 0;
 }
+.clickable {
+  cursor: pointer;
+}
 
 /* Application specific */
 html, body {
