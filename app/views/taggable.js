@@ -4,7 +4,7 @@ import Ember from 'ember';
 
 export default Ember.View.extend({
   
-  classNames: ['clickable'],
+  classNames: ['taggable', 'clickable'],
   
   /**
    * Lifecycle hook - called when view is created.

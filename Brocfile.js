@@ -23,4 +23,6 @@ app.import('app/styles/bootstrap.css');
 
 app.import('vendor/emberfire/dist/emberfire.js');
 
+// TODO test http://iosjs.com/
+
 module.exports = app.toTree();

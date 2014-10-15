@@ -12,15 +12,17 @@ export default Ember.View.extend({
       view.updateSizes();
     }
 
+    // http://davidwalsh.name/orientation-change
     // Listen for orientation changes
     window.addEventListener("orientationchange", function(event) {
       // Announce the new orientation number
-      console.log("orientation", event.orientation);
-      view.set("orientation", event.orientation);
+      view.set("orientation", window.orientation);
     }, false);
   },
   
   updateSizes: function () {
+    // Hide the address bar on orientation change
+    window.scrollTo(0, 0);
     this.set('outerHeight', window.outerHeight);
     this.set('outerWidth', window.outerWidth);
     this.set('innerHeight', window.innerHeight);
