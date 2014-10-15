@@ -37,6 +37,7 @@ html, body {
   padding: 2vmin 3vmin 1vmin;
 }
   .next-lookie a:focus,
+  .next-lookie a:active,
   .next-lookie a:hover {
     background: #56cc27;
   }
@@ -76,6 +77,7 @@ html, body {
 }
 
 .tag:hover,
+.tag:active,
 .tag:focus {
   opacity: 1;
 }
