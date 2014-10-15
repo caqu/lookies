@@ -4,8 +4,9 @@ import Ember from 'ember';
 
 export default Ember.View.extend({
   
-  classNames: ['taggable', 'clickable'],
+  classNames: ['lookie', 'taggable', 'clickable'],
   
+  attributeBindings: ['style:style'],
   /**
    * Lifecycle hook - called when view is created.
    * Note: this is a private method in ember, so make sure to
@@ -26,7 +27,7 @@ export default Ember.View.extend({
 
     var view = this,
         target =   $('#'+this.elementId)[0],
-        bg_image = $(target).find(".lookie").css('background-image'),
+        bg_image = $(target).css('background-image'),
         // Remove url("") to get the url
         image_url = bg_image.replace(/^url\("?(.+?)"?\)$/, '$1'),
         image = new Image();
@@ -51,6 +52,7 @@ export default Ember.View.extend({
   },//.bind(this),
   
   recalculateSizes: function() {
+    debugger;
     var view = this,
         target = $('#'+this.elementId)[0],
         stretchedWidth = target.offsetWidth,
@@ -70,7 +72,14 @@ export default Ember.View.extend({
     view.set('topBlackBarHeight', topBlackBarHeight);
     view.set('lookieWidth', stretchedWidth);
     view.set('lookieHeight', stretchedHeight);
+    return {
+      leftBlackBarWidth: leftBlackBarWidth,
+      topBlackBarHeight: topBlackBarHeight,
+      stretchedWidth: stretchedWidth,
+      stretchedHeight: stretchedHeight
+    };
   },
+
   //
   leftBlackBarWidth: function () { return 0; }.property(),
   topBlackBarHeight: function () { return 0; }.property(),
@@ -93,35 +102,13 @@ export default Ember.View.extend({
     // Is is not editing, don't handle the click which creates a new tag.
     if ( !this.get('controller.isEditing') ) { return; }
 
-    // Figure the position of the click, to save it to the new tag.
-    var target = evt.currentTarget,
-        bg_image = $(target).find(".lookie").css('background-image'),
-        // Remove url("") to get the url
-        image_url = bg_image.replace(/^url\("?(.+?)"?\)$/, '$1'),
-        image = new Image(),
-        leftBlackBarWidth = 0,
-        topBlackBarHeight = 0,
-        stretchedWidth = target.offsetWidth,
-        stretchedHeight = target.offsetHeight;
-
-    image.src = image_url;
-
-    if (this.get('loadedImageWidth') === 0) { window.console.log("There was a problem getting the image."); }
-
-    var isShowingVerticalBars = target.offsetWidth /target.offsetHeight > this.get('loadedImageWidth') /this.get('loadedImageHeight');
-    if (isShowingVerticalBars) {
-      stretchedWidth = this.get('loadedImageWidth') /this.get('loadedImageHeight') * target.offsetHeight;
-      leftBlackBarWidth = (target.offsetWidth - stretchedWidth) / 2 | 0;
-    } else {
-      stretchedHeight = this.get('loadedImageHeight') /this.get('loadedImageWidth') * target.offsetWidth;
-      topBlackBarHeight = (target.offsetHeight - stretchedHeight) / 2 | 0;
-    }
+    var c = this.recalculateSizes();
 
     // Percent from the left, not counting the black bar
-    var x = (evt.clientX - leftBlackBarWidth) / stretchedWidth; // drop decimals with |0;
+    var x = (evt.clientX - c.leftBlackBarWidth) / c.stretchedWidth; // drop decimals with |0;
 
     // Percent from the top, not counting the black bar
-    var y = (evt.clientY - topBlackBarHeight) / stretchedHeight;
+    var y = (evt.clientY - c.topBlackBarHeight) / c.stretchedHeight;
 
     this.get('controller').send('createTag', x, y);
   }

@@ -1,5 +1,4 @@
-{{#view "taggable"}}
-  <div class="lookie" {{bind-attr style="model.backgroundUrl"}}></div>
+{{#view "taggable" styleBinding="model.backgroundUrl"}}
   {{#each tag in model.tags}}
     {{lookie-tag ratioFromLeft=tag.ratioFromLeft ratioFromTop =tag.ratioFromTop
        leftBlackBarWidth=view.leftBlackBarWidth  topBlackBarHeight=view.topBlackBarHeight
