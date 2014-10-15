@@ -1,20 +1,22 @@
 
 {{!-- not sure how this should look styles here for now --}}
-<div class="create-tag-product-form well">
+<div class="create-tag-product-form-wrap">
+  <div class="create-tag-product-form well">
 
-  {{!-- <h4>
-    Create Tag
-  </h4> --}}
+    {{!-- <h4>
+      Create Tag
+    </h4> --}}
 
-  <form class="form-horizontal" {{action "addLinkFromTagToProduct" on="submit"}}>
-    <div class="input-group">
-      {{input type="text" class="form-control" autofocus=true
-          value=newProductURL 
-          placeholder='Enter a prod id like "1305_8766_012"'}}
-      <span class="input-group-btn">
-        <button class="btn btn-success" type="submit">Save</button>
-      </span>
-    </div>
-  </form>
+    <form class="form-horizontal" {{action "addLinkFromTagToProduct" on="submit"}}>
+      <div class="input-group">
+        {{input type="text" class="form-control" autofocus=true
+            value=newProductURL 
+            placeholder='Enter a prod id like "1305_8766_012"'}}
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="submit">Save</button>
+        </span>
+      </div>
+    </form>
 
+  </div>
 </div>

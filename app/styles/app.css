@@ -81,12 +81,15 @@ html, body {
 .tag:focus {
   opacity: 1;
 }
-
-.create-tag-product-form {
-  width: 40vw;
+.create-tag-product-form-wrap {
+  width: 40%;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 1;
+}
+.create-tag-product-form {
+  position: relative;
+  top: -3em;
+  left: -50%;
 }
