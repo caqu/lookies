@@ -52,7 +52,6 @@ export default Ember.View.extend({
   },//.bind(this),
   
   recalculateSizes: function() {
-    debugger;
     var view = this,
         target = $('#'+this.elementId)[0],
         stretchedWidth = target.offsetWidth,
