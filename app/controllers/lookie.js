@@ -34,6 +34,9 @@ export default Ember.Controller.extend({
      * @param y value from 0 to 1 of the y-coord relative to the top edge
      */
     createTag: function (x, y) {
+
+      alert("createTag: " + x + ", " + y);
+
       var store = this.store,
           lookie = this.get('model'),
           newTag = store.createRecord('tag', {
@@ -44,6 +47,7 @@ export default Ember.Controller.extend({
           });
       // Create and save tag, and update the lookie's ref to the tag
       lookie.get('tags').then(function(tags) {
+        alert('got tags');
         tags.addObject(newTag);
         lookie.save();
         newTag.save();
@@ -52,7 +56,8 @@ export default Ember.Controller.extend({
       this.set("isTagging", true);
       this.set("lastTag", newTag);
     },
-    
+
+
     addLinkFromTagToProduct: function () {
       console.log("addLinkFromTagToProduct");
 

@@ -1,5 +1,7 @@
 {{#view "taggable" styleBinding="model.backgroundUrl"}}
+    <span style="position:fixed;top:10%;left:25%">
   {{#each tag in model.tags}}
+    {{tag}}
     {{lookie-tag ratioFromLeft=tag.ratioFromLeft ratioFromTop =tag.ratioFromTop
        leftBlackBarWidth=view.leftBlackBarWidth  topBlackBarHeight=view.topBlackBarHeight
        lookieWidth=view.lookieWidth              lookieHeight=view.lookieHeight
@@ -7,6 +9,7 @@
        action="navigateToTag"
     }}
   {{/each}}
+    </span>
 {{/view}}
 
 <div class="logo-home">

@@ -109,8 +109,6 @@ export default Ember.View.extend({
     // Percent from the top, not counting the black bar
     var y = (evt.clientY - c.topBlackBarHeight) / c.stretchedHeight;
 
-    alert("Click! " + x + ", " + y);
-
     this.get('controller').send('createTag', x, y);
   }
 
