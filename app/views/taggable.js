@@ -98,8 +98,6 @@ export default Ember.View.extend({
    */
   click: function(evt) {
 
-    alert("Click!");
-
     // Is is not editing, don't handle the click which creates a new tag.
     if ( !this.get('controller.isEditing') ) { return; }
 
@@ -110,6 +108,8 @@ export default Ember.View.extend({
 
     // Percent from the top, not counting the black bar
     var y = (evt.clientY - c.topBlackBarHeight) / c.stretchedHeight;
+
+    alert("Click! " + x + ", " + y);
 
     this.get('controller').send('createTag', x, y);
   }
