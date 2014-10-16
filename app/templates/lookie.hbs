@@ -1,5 +1,5 @@
 {{#view "taggable" styleBinding="model.backgroundUrl"}}
-    <span style="position:fixed;top:10%;left:25%">
+    <span style="position:fixed;top:10%;left:25%">[[{{model.tags}}]]((
   {{#each tag in model.tags}}
     {{tag}}
     {{lookie-tag ratioFromLeft=tag.ratioFromLeft ratioFromTop =tag.ratioFromTop
@@ -9,7 +9,7 @@
        action="navigateToTag"
     }}
   {{/each}}
-    </span>
+    ))</span>
 {{/view}}
 
 <div class="logo-home">

@@ -49,8 +49,9 @@ export default Ember.Controller.extend({
       lookie.get('tags').then(function(tags) {
         alert('got tags');
         tags.addObject(newTag);
-        lookie.save();
-        newTag.save();
+        alert('added tag to tags');
+        lookie.save().then(function(){alert('saved lookie')});
+        newTag.save().then(function(){alert('saved newTag')});
       });
 
       this.set("isTagging", true);
