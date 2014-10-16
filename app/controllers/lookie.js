@@ -50,10 +50,10 @@ export default Ember.Controller.extend({
         alert('got tags');
         tags.addObject(newTag);
         alert('added tag to tags');
-        lookie.save().then(function(){
-          alert('saved lookie');
-          newTag.save().then(function(){
-            alert('saved newTag');
+        newTag.save().then(function(){
+          alert('saved newTag');
+          lookie.save().then(function(){
+            alert('saved lookie');
           });
         });
       });
