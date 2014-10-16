@@ -98,6 +98,8 @@ export default Ember.View.extend({
    */
   click: function(evt) {
 
+    alert("Click!");
+
     // Is is not editing, don't handle the click which creates a new tag.
     if ( !this.get('controller.isEditing') ) { return; }
 
