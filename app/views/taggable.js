@@ -101,7 +101,8 @@ export default Ember.View.extend({
     // Is is not editing, don't handle the click which creates a new tag.
     if ( !this.get('controller.isEditing') ) { return; }
 
-    var c = this.recalculateSizes();
+    var taggableView = this;
+    var c = this.recalculateSizes.apply(taggableView);
 
     // Percent from the left, not counting the black bar
     var x = (evt.clientX - c.leftBlackBarWidth) / c.stretchedWidth; // drop decimals with |0;
