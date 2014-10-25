@@ -21,8 +21,16 @@ export default Ember.Component.extend({
     var calcLeft = this.get('leftBlackBarWidth') + this.get('ratioFromLeft') * this.get('lookieWidth') |0,
         calcTop  = this.get('topBlackBarHeight') + this.get('ratioFromTop' ) * this.get('lookieHeight')|0;
 
-console.log("calcLeft", calcLeft);
-    return "left:"+calcLeft+"px;"+"top:"+calcTop+"px";
+    console.log("leftBlackBarWidth: ", this.get('leftBlackBarWidth'));
+    console.log("ratioFromLeft: ", this.get('ratioFromLeft'));
+    console.log("topBlackBarHeight: ", this.get('topBlackBarHeight'));
+    console.log("ratioFromTop: ", this.get('ratioFromTop'));
+    console.log("tag pos: " + calcLeft + ", " + calcTop);
+
+    var s = "left:"+calcLeft+"px;"+"top:"+calcTop+"px";
+
+    return s;
+
   }.property('leftBlackBarWidth', 'topBlackBarHeight', 'lookieHeight', 'lookieWidth'),
 
   // click: function () {
