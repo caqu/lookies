@@ -17,29 +17,20 @@ export default Ember.Component.extend({
     return h; 
   }.property('productHref'),
 
-  ratioFromLeft: Ember.computed.alias('componentTag.ratioFromLeft'),
-  ratioFromTop: Ember.computed.alias('componentTag.ratioFromTop'),
-
   style: function() {
     var calcLeft = this.get('leftBlackBarWidth') + this.get('ratioFromLeft') * this.get('lookieWidth') |0,
         calcTop  = this.get('topBlackBarHeight') + this.get('ratioFromTop' ) * this.get('lookieHeight')|0;
 
-    // console.log("tag: ", this.get('componentTag'));
-    // console.log("leftBlackBarWidth: ", this.get('leftBlackBarWidth'));
-    // console.log("ratioFromLeft: ", this.get('ratioFromLeft'));
-    // console.log("topBlackBarHeight: ", this.get('topBlackBarHeight'));
-    // console.log("ratioFromTop: ", this.get('ratioFromTop'));
-    // console.log("tag pos: " + calcLeft + ", " + calcTop);
-
-    var s = "left:"+calcLeft+"px;"+"top:"+calcTop+"px";
-
-    return s;
+    return "left:"+calcLeft+"px;"+"top:"+calcTop+"px";
 
   }.property('leftBlackBarWidth', 'topBlackBarHeight', 'lookieHeight', 'lookieWidth', 'ratioFromLeft', 'ratioFromTop'),
 
-  // click: function () {
-  //   // TODO prevent error if href is null
-  //   var href = decodeURIComponent( this.get('href').get('url') );
-  //   this.sendAction('action', href);
-  // }
+  // Defaults
+  leftBlackBarWidth: 0,
+  topBlackBarHeight: 0, 
+  lookieHeight: 0,
+  lookieWidth: 0,
+  ratioFromLeft: 0,
+  ratioFromTop: 0
+
 });
