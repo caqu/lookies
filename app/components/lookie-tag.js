@@ -17,10 +17,14 @@ export default Ember.Component.extend({
     return h; 
   }.property('productHref'),
 
+  ratioFromLeft: Ember.computed.alias('componentTag.ratioFromLeft'),
+  ratioFromTop: Ember.computed.alias('componentTag.ratioFromTop'),
+
   style: function() {
     var calcLeft = this.get('leftBlackBarWidth') + this.get('ratioFromLeft') * this.get('lookieWidth') |0,
         calcTop  = this.get('topBlackBarHeight') + this.get('ratioFromTop' ) * this.get('lookieHeight')|0;
 
+    console.log("tag: ", this.get('componentTag'));
     console.log("leftBlackBarWidth: ", this.get('leftBlackBarWidth'));
     console.log("ratioFromLeft: ", this.get('ratioFromLeft'));
     console.log("topBlackBarHeight: ", this.get('topBlackBarHeight'));

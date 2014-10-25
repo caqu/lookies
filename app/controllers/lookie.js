@@ -6,18 +6,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-
-  // Seen when the lookie viewport is wider than the image
-  leftBlackBarWidth: function () {
-
-  }.property(),
-
-  // Seen when the lookie viewport is taller than the image
-  topBlackBarHeight: function () {
-
-  }.property(),
   
-  // whether the lookie can be tagged, and clicking on tags edits or navigates  
+  // Whether the lookie can be tagged, and clicking on tags edits or navigates  
   isEditing: false,
 
   // Between user click to create tag and saving the product url
