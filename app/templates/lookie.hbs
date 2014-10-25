@@ -17,14 +17,10 @@
   {{#link-to 'lookies'}}<span class="glyphicon glyphicon-arrow-right"></span>{{/link-to}}
 </div>
 
-<div class="is-editing well" style="position:fixed;right:0">
-  <div class="checkbox">
-    <label>
-      {{input type="checkbox" name="isEditing" checked=isEditing}}
-      Edit
-    </label>
-  </div>
-</div>
+<label class="is-editing well clickable" style="position:fixed;right:0">
+    {{input type="checkbox" name="isEditing" checked=isEditing}}
+    Edit
+</label>
 
 {{#if isTagging}}
   {{view "create-tag"}}
