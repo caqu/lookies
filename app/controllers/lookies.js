@@ -16,6 +16,14 @@ export default Ember.ArrayController.extend({
       
       newLookie.save();
 
+    },
+
+    deleteLookie: function (lookieRecord) {
+      
+      Ember.assert("Lookie is of 'type' 'lookie'", lookieRecord.get('constructor.typeKey') === 'lookie');
+
+      lookieRecord.destroyRecord();
+
     }
 
   }

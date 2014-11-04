@@ -56,6 +56,26 @@ html, body {
   margin-bottom: 10px;
   background-size: cover;
   background-position: 50% 50%; /* This could be improved with after identifying the area of interest */
+  position: relative;
+}
+.lookie-thumb-link {
+  width: 200px; 
+  height: 200px;
+  display: inline-block;
+}
+.del-lookie {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(25%, -25%);
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.del-lookie:focus,
+.del-lookie:hover {
+  color: #eee;
+  text-decoration: none;  
 }
 
 .lookie {
