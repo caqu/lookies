@@ -34,12 +34,27 @@ export default Ember.Component.extend({
   },
 
   _extractData: function () {
+    var ctx = this.get('ctx');
+    var x = 0,
+        y = 0;
+    var p = ctx.getImageData(x, y, 1, 1).data; 
+    console.log("p: ", p);
+    // var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
+    // $('#status').html(coord + "<br>" + hex);
+
     this.set('red', 256);
     this.set('green', 256);
     this.set('blue', 256);
     this.set('hue', 256);
     this.set('saturation', 256);
     this.set('lightness', 256);
+    console.log("red: ", this.get('red'));
   } 
 
 });
+
+
+
+
+
+

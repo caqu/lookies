@@ -1,7 +1,13 @@
 
-{{canvas-swatch src="/swatches/0104_9387_803_s.jpeg" data='some pig'}}
+{{!-- {{canvas-swatch src="/swatches/0104_9387_803_s.jpeg" data='some pig'}} --}}
 
-<pre style="float:right">
+{{#each color in this}}
+  {{color.content.id}}
+  {{canvas-swatch src=color.swatchFilePath data='some pig'}}
+
+{{/each}}
+{{!--
+ <pre style="float:right">
 R: {{red}}
 G: {{green}}
 B: {{blue}}
@@ -9,3 +15,4 @@ H: {{hue}}
 S: {{saturation}}
 L: {{lightness}}
 </pre>
+ --}}
