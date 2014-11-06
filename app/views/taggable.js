@@ -4,8 +4,10 @@ import Ember from 'ember';
 
 export default Ember.View.extend({
   
-  classNames: ['lookie', 'taggable', 'clickable'],
+  classNames: ['lookie', 'taggable'],
   
+  classNameBindings: ['controller.isEditing:clickable'],
+
   attributeBindings: ['style:style'],
   /**
    * Lifecycle hook - called when view is created.
@@ -86,6 +88,10 @@ export default Ember.View.extend({
   //
   lookieWidth: function () { return window.innerWidth; }.property(),
   lookieHeight: function () { return window.innerHeight; }.property(),
+
+  // isEditing: function () {
+  //   return this.get('controller.isEditing');
+  // }.property('controller.isEditing'),
 
   /**
     On click, send the action to create the tagm but first,

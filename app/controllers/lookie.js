@@ -80,12 +80,19 @@ export default Ember.Controller.extend({
     /**
      * Navigate to tagged link
      */
-    navigateToTag: function (href) {
-      window.console.log("Navigating to tagged link");
-      window.location = href;
+    editLookie: function (tagComponent) {
+      this.set('isTagging', true);
+      this.set("lastTag", tagComponent);
+    },
+
+    deleteTag: function (that) {
+
+      debugger;
+    },
+
+    closeEditTagDialog: function () {
+      this.set('isTagging', false);
     }
-
-
 
   }
 });

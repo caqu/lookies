@@ -71,6 +71,7 @@ html, body {
   color: #fff;
   text-decoration: none;
   cursor: pointer;
+  text-shadow: 1px 1px 5px #000;
 }
 .del-lookie:focus,
 .del-lookie:hover {
@@ -108,6 +109,7 @@ html, body {
 }
 .create-tag-product-form-wrap {
   width: 40%;
+  min-width: 26em;
   position: absolute;
   top: 50%;
   left: 50%;
