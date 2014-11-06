@@ -36,7 +36,6 @@ export default Ember.Controller.extend({
       lookie.get('tags').then(function(tags) {
         tags.addObject(newTag);
         lookie.save();
-        newTag.save();
       });
 
       this.set("isTagging", true);
@@ -70,6 +69,7 @@ export default Ember.Controller.extend({
       
       function _saveProduct (product) {
         product.get('tags').addObject(lastTag).save();
+        lastTag.save();
         product.save().then(function () {
           that.set('isTagging', false);
         });
@@ -85,8 +85,8 @@ export default Ember.Controller.extend({
       this.set("lastTag", tagComponent);
     },
 
-    deleteTag: function (that) {
-
+    deleteTag: function () {
+      this.get("lastTag");
       debugger;
     },
 
