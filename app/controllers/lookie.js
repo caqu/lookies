@@ -85,13 +85,38 @@ export default Ember.Controller.extend({
       this.set("lastTag", tagComponent);
     },
 
+    _deleteTag: function () {
+      var tag = this.get('lastTag'),
+          tagIsNotSaved = !!tag.id,
+          tagIsSaved = !!tag.elementId;
+      if ( tagIsNotSaved ) {
+        this.store.find('tag', tag.id).then(function (tag) {
+          tag.deleteRecord();
+        });
+      } else if ( tagIsSaved ) {
+        this.store.find('tag', tag.elementId).then(function (tag) {
+          tag.destroyRecord();
+        });
+      }
+    },
+
     deleteTag: function () {
-      var tagId = this.get('lastTag.elementId');
-      debugger;
+      this.send('_deleteTag');
+      this.set('isTagging', false);
     },
 
     closeEditTagDialog: function () {
+      // hide the edit-tag-dialog box
       this.set('isTagging', false);
+      // delete the tag if it wasn't saved
+      var tag = this.get('lastTag');
+      if ( tag.id ) { 
+        this.store.find('tag', tag.id).then(function (tag) {
+          if (!tag.get('product')) {
+            tag.deleteRecord();
+          }
+        });
+      }
     }
 
   }
