@@ -7,6 +7,7 @@
        leftBlackBarWidth=view.leftBlackBarWidth  topBlackBarHeight=view.topBlackBarHeight
        lookieWidth=view.lookieWidth              lookieHeight=view.lookieHeight
        productHref=tag.product
+       id=tag.id
     }}
   {{/each}}
 {{/view}}
@@ -25,5 +26,5 @@
 </label>
 
 {{#if isTagging}}
-  {{view "create-tag"}}
+  {{view "edit-tag-dialog"}}
 {{/if}}

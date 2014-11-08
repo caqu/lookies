@@ -107,7 +107,7 @@ html, body {
   text-decoration: none;
   color: inherit;
 }
-.create-tag-product-form-wrap {
+.edit-tag-dialog-product-form-wrap {
   width: 40%;
   min-width: 26em;
   position: absolute;
@@ -115,7 +115,7 @@ html, body {
   left: 50%;
   z-index: 1;
 }
-.create-tag-product-form {
+.edit-tag-dialog-product-form {
   position: relative;
   top: -3em;
   left: -50%;

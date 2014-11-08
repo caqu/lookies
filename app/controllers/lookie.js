@@ -86,7 +86,7 @@ export default Ember.Controller.extend({
     },
 
     deleteTag: function () {
-      this.get("lastTag");
+      var tagId = this.get('lastTag.elementId');
       debugger;
     },
 
