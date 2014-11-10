@@ -16,6 +16,17 @@ export default Ember.Controller.extend({
   // Reference to the tag that was created last
   lastTag: null,
 
+  productURL: function () {
+    var lastTag = this.get('lastTag');
+    if ( lastTag ) {
+      var product = lastTag.productHref;
+      if ( product && product.get('url') ) {
+        return decodeURIComponent( product.get('url') );
+      }
+    }
+    return '';
+  }.property('lastTag'),
+
   actions: {
 
     /**
@@ -40,12 +51,11 @@ export default Ember.Controller.extend({
 
       this.set("isTagging", true);
       this.set("lastTag", newTag);
-    },
-    
-    addLinkFromTagToProduct: function () {
-      console.log("addLinkFromTagToProduct");
 
-      var productUrl = this.get('newProductURL');
+    },
+
+    saveTag: function () {
+      var productUrl = this.get('productURL');
       var productUrlAsId = encodeURIComponent(productUrl).replace(/\./g, '%2E');
       var store = this.store;
       var lastTag = this.get('lastTag');
