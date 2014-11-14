@@ -2,7 +2,7 @@ import { test, moduleForModel } from 'ember-qunit';
 
 moduleForModel('lookie', 'Lookie', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:tag']
 });
 
 test('it exists', function() {
