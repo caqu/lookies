@@ -1,6 +1,6 @@
 import { test, moduleFor } from 'ember-qunit';
 
-moduleFor('view:create-tag', 'CreateTagView');
+moduleFor('view:edit-tag-dialog', 'EditTagDialogView');
 
 // Replace this with your real tests.
 test('it exists', function() {
