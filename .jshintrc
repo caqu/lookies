@@ -1,5 +1,6 @@
 {
   "predef": {
+    "$": true,
     "document": true,
     "window": true,
     "LookiesENV": true
@@ -23,6 +24,7 @@
   "plusplus": false,
   "regexp": false,
   "undef": true,
+  "scripturl":           true,
   "sub": true,
   "strict": false,
   "white": false,

@@ -65,6 +65,7 @@
   "plusplus": false,
   "regexp": false,
   "undef": true,
+  "scripturl":       true,
   "sub": true,
   "strict": false,
   "white": false,

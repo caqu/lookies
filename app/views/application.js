@@ -14,7 +14,7 @@ export default Ember.View.extend({
 
     // http://davidwalsh.name/orientation-change
     // Listen for orientation changes
-    window.addEventListener("orientationchange", function(event) {
+    window.addEventListener("orientationchange", function() {
       // Announce the new orientation number
       view.set("orientation", window.orientation);
     }, false);
